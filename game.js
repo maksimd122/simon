@@ -25,6 +25,13 @@ function checkAnswer(currentLevel) {
             userClickedPattern = [];
             nextSequence();
         });
+        $('body').bind('tap swipe focus', function() {
+            $("body").unbind();
+            level = 0;
+            gamePattern = [];
+            userClickedPattern = [];
+            nextSequence();
+        });
     }
 }
 
@@ -63,3 +70,14 @@ $("body").keydown(function () {
     });
 });
 
+$('body').bind('tap swipe focus', function() {
+    $("body").unbind();
+    nextSequence();
+    $(".btn").click(function () {
+        var userChosenColour = this.id;
+        userClickedPattern.push(userChosenColour);
+        animatePress(userChosenColour);
+        playSound(userChosenColour);
+        checkAnswer(userClickedPattern.length - 1);
+    });
+});
