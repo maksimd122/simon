@@ -25,7 +25,7 @@ function checkAnswer(currentLevel) {
             userClickedPattern = [];
             nextSequence();
         });
-        $('body').on('swipeleft', function() {
+        $('body').on('swipe', function() {
             $("body").unbind();
             level = 0;
             gamePattern = [];
@@ -70,7 +70,7 @@ $("body").keydown(function () {
     });
 });
 
-$('body').on('swipeleft', function() {
+$('body').on('swipe', function() {
     $("body").unbind();
     nextSequence();
     $(".btn").click(function () {
