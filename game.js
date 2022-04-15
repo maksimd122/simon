@@ -18,7 +18,7 @@ function checkAnswer(currentLevel) {
             $("body").toggleClass("game-over");
         }, 200);
         $("#level-title").text("Game Over, Press Any Key to Restart");
-        $("body").keypress(function () {
+        $("body").keydown(function () {
             $("body").unbind();
             level = 0;
             gamePattern = [];
@@ -51,7 +51,7 @@ function nextSequence() {
     playSound(randomChosenColour);
 }
 
-$("body").keypress(function () {
+$("body").keydown(function () {
     $("body").unbind();
     nextSequence();
     $(".btn").click(function () {
