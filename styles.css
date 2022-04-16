@@ -47,6 +47,18 @@ body {
   background-color: yellow;
 }
 
+.restart {
+  font-family: monospace;
+  background-color: #502707;
+  height: 2rem;
+  font-size: 1.5rem;
+  color: #a5ff4c;
+  border-radius: 2rem;
+  width: 10rem;
+  display: inline-block;
+  border: 5px solid black
+}
+
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;

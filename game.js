@@ -25,8 +25,8 @@ function checkAnswer(currentLevel) {
             userClickedPattern = [];
             nextSequence();
         });
-        $('body').on("swipe", function () {
-            $("body").unbind();
+        $('restart').on("touchend", function () {
+            $("restart").unbind();
             level = 0;
             gamePattern = [];
             userClickedPattern = [];
@@ -70,8 +70,8 @@ $("body").keydown(function () {
     });
 });
 
-$('body').on("swipe", function () {
-    $("body").unbind();
+$('restart').on("touchend", function () {
+    $("restart").unbind();
     nextSequence();
     $(".btn").click(function () {
         var userChosenColour = this.id;
