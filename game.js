@@ -2,6 +2,7 @@ var userClickedPattern = [];
 var gamePattern = [];
 var buttonColors = ["red", "blue", "green", "yellow"];
 var level = 0;
+var started = true;
 
 function clickEvent() {
     var userChosenColour = this.id;
@@ -12,6 +13,7 @@ function clickEvent() {
 }
 
 function resetGame() {
+    started = true;
     level = 0;
     gamePattern = [];
     userClickedPattern = [];
@@ -20,13 +22,14 @@ function resetGame() {
 
 
 function checkAnswer(currentLevel) {
-    if (userClickedPattern[currentLevel] === gamePattern[currentLevel] && userClickedPattern.length <= gamePattern.length) {
+    if (userClickedPattern[currentLevel] === gamePattern[currentLevel] && started === true) {
         if (userClickedPattern.length === gamePattern.length) {
             setTimeout(nextSequence, 1000);
         }
     } else {
+        started = false;
         $("body").unbind();
-        // $(".restart").unbind();
+        $(".restart").unbind();
         var sound = new Audio("sounds/wrong.mp3");
         sound.play();
         $("body").toggleClass("game-over");
