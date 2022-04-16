@@ -38,7 +38,7 @@ function checkAnswer(currentLevel) {
             $("body").unbind();
             resetGame();
         });
-        $('.restart').bind("tap", function () {
+        $('.restart').bind("click", function () {
             $(".restart").unbind();
             resetGame();
         });
@@ -74,7 +74,7 @@ $("body").keydown(function () {
     $(".btn").click(clickEvent);
 });
 
-$('.restart').bind("tap", function () {
+$('.restart').bind("click", function () {
     $(".restart").unbind();
     nextSequence();
     $(".btn").click(clickEvent);
