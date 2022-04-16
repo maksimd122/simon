@@ -25,7 +25,7 @@ function checkAnswer(currentLevel) {
             userClickedPattern = [];
             nextSequence();
         });
-        $('.restart').bind("touchstart", function () {
+        $('.restart').bind("tap", function () {
             $(".restart").unbind();
             level = 0;
             gamePattern = [];
@@ -70,7 +70,7 @@ $("body").keydown(function () {
     });
 });
 
-$('.restart').bind("touchstart", function () {
+$('.restart').bind("tap", function () {
     $(".restart").unbind();
     nextSequence();
     $(".btn").click(function () {
