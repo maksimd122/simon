@@ -11,6 +11,7 @@ function checkAnswer(currentLevel) {
         }
     } else {
         $("body").unbind();
+        $(".restart").unbind();
         var sound = new Audio("sounds/wrong.mp3");
         sound.play();
         $("body").toggleClass("game-over");
