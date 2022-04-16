@@ -48,9 +48,10 @@ body {
 }
 
 .restart {
-  font-family: monospace;
+  font-family: 'Press Start 2P', cursive;
   background-color: #502707;
   height: 2rem;
+  padding-top: 10px;
   font-size: 1.5rem;
   color: #a5ff4c;
   border-radius: 2rem;
