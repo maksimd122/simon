@@ -3,6 +3,21 @@ var gamePattern = [];
 var buttonColors = ["red", "blue", "green", "yellow"];
 var level = 0;
 
+function clickEvent() {
+    var userChosenColour = this.id;
+    userClickedPattern.push(userChosenColour);
+    animatePress(userChosenColour);
+    playSound(userChosenColour);
+    checkAnswer(userClickedPattern.length - 1);
+}
+
+function resetGame() {
+    level = 0;
+    gamePattern = [];
+    userClickedPattern = [];
+    nextSequence();
+}
+
 
 function checkAnswer(currentLevel) {
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel] && userClickedPattern.length <= gamePattern.length) {
@@ -21,17 +36,11 @@ function checkAnswer(currentLevel) {
         $("#level-title").text("Game Over, Press Any Key to Restart or Press Start on Phone");
         $("body").keydown(function () {
             $("body").unbind();
-            level = 0;
-            gamePattern = [];
-            userClickedPattern = [];
-            nextSequence();
+            resetGame();
         });
         $('.restart').bind("tap", function () {
             $(".restart").unbind();
-            level = 0;
-            gamePattern = [];
-            userClickedPattern = [];
-            nextSequence();
+            resetGame();
         });
     }
 }
@@ -62,23 +71,11 @@ function nextSequence() {
 $("body").keydown(function () {
     $("body").unbind();
     nextSequence();
-    $(".btn").click(function () {
-        var userChosenColour = this.id;
-        userClickedPattern.push(userChosenColour);
-        animatePress(userChosenColour);
-        playSound(userChosenColour);
-        checkAnswer(userClickedPattern.length - 1);
-    });
+    $(".btn").click(clickEvent);
 });
 
 $('.restart').bind("tap", function () {
     $(".restart").unbind();
     nextSequence();
-    $(".btn").click(function () {
-        var userChosenColour = this.id;
-        userClickedPattern.push(userChosenColour);
-        animatePress(userChosenColour);
-        playSound(userChosenColour);
-        checkAnswer(userClickedPattern.length - 1);
-    });
+    $(".btn").click(clickEvent);
 });
